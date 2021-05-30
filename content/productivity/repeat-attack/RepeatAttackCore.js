@@ -265,9 +265,9 @@ function pesterS(
 
     const FORCES = Math.ceil(df.getEnergyNeededForMove(yourPlanetLocationId, opponentsPlanetLocationsId, 1));
 
-      console.log(`[pester]: launching attack from ${source.locationId}`);
+      console.log(`[pesterS]: launching attack from ${source.locationId}`);
       df.terminal.current.println(
-        `[pester]: launching attack from ${source.locationId}`,
+        `[pesterS]: launching attack from ${source.locationId}`,
         4
       );
   
@@ -328,8 +328,8 @@ function createPesterS(
     meta = {}
   ) {
     return {
-      id: `[PESTER]-${srcId}-${syncId}-${percentageTrigger}`,
-      type: c.PESTERS,
+      id: `[WITHDRAWER]-${srcId}-${syncId}-${percentageTrigger}`,
+      type: c.WITHDRAWER,
       payload: {
         srcId,
         syncId,
@@ -921,6 +921,7 @@ class Manager {
     //aliases
     this.p = this.createPester.bind(this);
     this.pester = this.createPester.bind(this);
+    this.pesterS = this.createPesterS.bind(this);
     this.s = this.swarm.bind(this);
     this.e = this.createExplore.bind(this);
     this.explore = this.createExplore.bind(this);
@@ -1167,7 +1168,7 @@ class Manager {
     meta = {}
   ) {
     if (this.dead) {
-      console.log("[CORELOOP IS DEAD], createPester ignored");
+      console.log("[CORELOOP IS DEAD], createPesterS ignored");
       return;
     }
     this.createAction(
