@@ -277,7 +277,7 @@ function pesterS(
           source.locationId
         }', '${opponentsPlanetLocationsId}', ${FORCES}, ${source.silver})`
       );
-      df.move(yourPlanetLocationId, opponentsPlanetLocationsId, FORCES, source.silver);
+      df.move(yourPlanetLocationId, opponentsPlanetLocationsId, FORCES, Math.floor(source.silver));
     }
 
 
@@ -296,7 +296,7 @@ function pesterS(
       );
 
     if(to.silver > TRIGGER_AMOUNT2){
-        df.withdrawSilver(opponentsPlanetLocationsId,to.silver)
+        df.withdrawSilver(opponentsPlanetLocationsId,Math.floor(to.silver))
     }
 
   }
